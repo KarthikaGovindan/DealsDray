@@ -31,7 +31,7 @@ public class Test02 {
 	{
 		driver.get("https://demo.dealsdray.com/");
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
 	}
 	@Test
 	public void test() throws Exception
@@ -46,13 +46,11 @@ public class Test02 {
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/div[2]/div[3]/button")).click();
 		driver.findElement(By.xpath("//*[@id=\"root\"]/div/div[2]/div[2]/div/div/div[2]/div[3]/button")).click();
 		
+		Thread.sleep(2000);
+		driver.switchTo().alert().accept();
 		
-		Alert a=driver.switchTo().alert();
-		a.accept();
-
-		
-		File srnshot=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-		FileHandler.copy(srnshot, new File("./screenshot//page1.png"));
+		/*File srnshot=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		FileHandler.copy(srnshot, new File("./screenshot//page1.png"));*/
 	}
 
 }
